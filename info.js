@@ -8,8 +8,8 @@ console.log(b, a);
 
 //String
 const what = "Nicolas"
-console.log(what);
-
+console.log(what); 
+  
 // Boolean is not text.
 const wat = false;
 
