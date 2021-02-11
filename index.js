@@ -1,45 +1,71 @@
 /*
-console.log('Im working. Im JS. Im beautiful. Im worth it');
-// 상수 : const, 변수 : let, var(예전에는 이것만 있었다.)
-var a = 221;
-let b = a - 5;
-a = 4;
-console.log(b, a);
+//  DOMError(Document Object Model)
+//const title = document.getElementById("title");
+const title = document.querySelector("#title");
+title.innerHTML = "Hi! From JS";
+title.style.color = "black";
 
-//String
-const what = "Nicolas"
-console.log(what);
-
-// Boolean is not text.
-const wat = false;
-
-// Number
-const wat = 666;
-
-// Float 
-const wat = 55.1;
 */
+// Tab 제목
+document.title = "I own you now";
 
-// javascript 변수 규칙 :  Camel case(lower case로 시작해 변수명 중간에 스페이스 필요하면 upper case를 쓴다.)
-// Array
-const something = "Something";
-const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", true, something];
-console.log(daysOfWeek);
+const title = document.querySelector("#title");
 
-// Object : {}를 통해 생성. Object 안의 값은 변경할 수 있지만 Object 자체를 변경시킬수는 없다. Objec안에 Array를 넣을 수 있다. Array안에도 Object 넣기 가능.
-const jewonInfo = { 
-    name:"Jewon", 
-    age:25,
-    isHandsome:true,
-    favMovies:["Soul", "Frozen", "Darknight"],
-    favFood:[
-        {name:"Kimchi", fatty: false},
-        {name : "Cheese Burger", fatty : true}
-    ]
-};
-console.log(jewonInfo.age);
+const BASE_COLOR = "rgb(0, 0, 139)";
+const OTHER_COLOR = "rgb(127, 140, 141)"
 
-jewonInfo.age = "35";
+function handleClick(){
+    const currentColor = title.style.color;
+    console.log(currentColor);
+    if (currentColor === BASE_COLOR){
+        title.style.color = OTHER_COLOR;
+    } else{
+        title.style.color = BASE_COLOR;
+    }
+}
 
-console.log(jewonInfo);
-console.log(jewonInfo.age);
+// HTML Javascript Event MDN 참고하기.
+function init(){
+    title.style.color = "BASE_COLOR";
+    title.addEventListener("click", handleClick);
+}
+
+init();
+
+function handelOffline(){
+    console.log("ByeBye");
+}
+
+function handleOnline() {
+    console.log("Welcome back");
+}
+
+// state of online and state of wifi off(=offline)
+window.addEventListener("offline", handelOffline);
+window.addEventListener("online", handleOnline);
+
+//window.addEventListner("resize", handleResize()) : 지금 바로 호출하라는 의미.
+// 필요한 경우에 호출하려면 아래처럼 ()없이 써야한다.
+//window.addEventListener("resize", handleResize);
+/*
+window.addEventListener("click", handleClick);
+
+if("10" === 10){
+    console.log("hi");
+} else {
+    console.log("ho");
+}
+
+
+// user에게 물어볼 수 있게 하는것. 오래된 것이라 잘 사용하지 않음.
+const age = prompt("How old are you?");
+console.log(age);
+
+if(age > 18 && age <= 21){
+    console.log('you can drink but you should not');
+} else if (age > 21){
+    console.log('go ahead');
+} else {
+    console.log('too young');
+}
+*/
